@@ -1,0 +1,11 @@
+Shapiro-Wilk Test Results for Foraging Latency:
+Control: Statistic=0.8716, p-value=0.2327
+24H: Statistic=0.9344, p-value=0.4296
+48H: Statistic=0.9110, p-value=0.2195
+
+All groups passed the normality test. Proceeding with ANOVA.
+
+ANOVA Test Results for Foraging Latency:
+F-statistic=2.4027, p-value=0.1096
+
+Conclusion: No statistically significant difference in foraging latency was found among the groups.
