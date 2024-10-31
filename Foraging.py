@@ -11,7 +11,7 @@ from scipy.stats import shapiro, f_oneway
 import pandas as pd
 
 # Load the Excel data file
-file_path = '/mnt/data/Trial 1.xlsx'
+file_path = 'Trial 1.xlsx'
 data = pd.read_excel(file_path, sheet_name='Sheet2')  # Assuming "Sheet2" is the foraging data
 
 # Extract data for each treatment group
