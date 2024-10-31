@@ -1,0 +1,18 @@
+Normality Test Results
+Control Pre: p = 0.777
+Control Post: p = 0.465
+24H Pre: p = 0.502
+24H Post: p = 0.468
+48H Pre: p = 0.175
+48H Post: p = 0.090
+Overall ANOVA Results
+Pre-Predator Velocities: F = 1.55, p = 0.231
+Post-Predator Velocities: F = 10.40, p = 0.0004 (significant)
+Velocity Difference (Post - Pre): F = 5.86, p = 0.0077 (significant)
+Pairwise ANOVA Results (24H and 48H vs Control)
+24H vs Control Pre-Predator: F = 1.14, p = 0.302
+24H vs Control Post-Predator: F = 7.91, p = 0.0125 (significant)
+24H vs Control Velocity Difference: F = 5.56, p = 0.0315 (significant)
+48H vs Control Pre-Predator: F = 3.83, p = 0.068
+48H vs Control Post-Predator: F = 1.08, p = 0.313
+48H vs Control Velocity Difference: F = 1.03, p = 0.325
