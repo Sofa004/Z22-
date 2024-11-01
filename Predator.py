@@ -10,14 +10,14 @@ import pandas as pd
 import numpy as np
 from scipy.stats import shapiro, f_oneway
 
-# Load data
-file_path = 'Trial 1.xlsx'  # Replace with actual path
+
+file_path = 'Trial 1.xlsx'  
 data = pd.read_excel(file_path, None)
 
-# Extracting predator assay data
+
 predator_df = data['Predator']
 
-# Define pre- and post-predator columns for each treatment group
+#Assign data 
 control_pre = predator_df['Control: Pre-predator']
 control_post = predator_df['Control: Post-predator']
 treatment_24h_pre = predator_df[['24HD1: Pre-predator', '24HD2: Pre-predator']].values.flatten()
@@ -25,12 +25,12 @@ treatment_24h_post = predator_df[['24HD1: Post-predator', '24HD2: Post-predator'
 treatment_48h_pre = predator_df[['48HD1: Pre-predator', '48HD2: Pre-predator']].values.flatten()
 treatment_48h_post = predator_df[['48HD1: Post-predator', '48HD2: Post-predator']].values.flatten()
 
-# Calculate the velocity difference (Post - Pre) for each group
+
 control_diff = control_post - control_pre
 treatment_24h_diff = treatment_24h_post - treatment_24h_pre
 treatment_48h_diff = treatment_48h_post - treatment_48h_pre
 
-#  Normality tests using Shapiro-Wilk for pre and post velocities
+#  Shapiro-Wilk test
 normality_results = {
     "Control Pre": shapiro(control_pre),
     "Control Post": shapiro(control_post),
@@ -40,16 +40,16 @@ normality_results = {
     "48H Post": shapiro(treatment_48h_post)
 }
 
-# ANOVA for pre-predator velocities across all groups to ensure baseline similarity
+# ANOVA for pre-predator velocities for the baseline analysis 
 anova_pre = f_oneway(control_pre, treatment_24h_pre, treatment_48h_pre)
 
-#  ANOVA for post-predator velocities across all groups to assess predator response
+# ANOVA for post-predator velocities to ensure difference in obtained data
 anova_post = f_oneway(control_post, treatment_24h_post, treatment_48h_post)
 
-#  ANOVA for velocity difference (Post - Pre) across groups to understand response impact
+#  ANOVA for velocity difference  to understand response impact
 anova_diff = f_oneway(control_diff, treatment_24h_diff, treatment_48h_diff)
 
-#  Pairwise ANOVA tests for 24-hour and 48-hour treatments vs control
+#  Pairwise ANOVA tests:
 # 24-hour treatment vs control
 anova_24h_vs_control_pre = f_oneway(control_pre, treatment_24h_pre)
 anova_24h_vs_control_post = f_oneway(control_post, treatment_24h_post)
@@ -70,7 +70,7 @@ pairwise_anova_results = {
     "48H vs Control Velocity Difference": anova_48h_vs_control_diff
 }
 
-# Display all results
+# Print the output
 print("Normality Results:", normality_results)
 print("\nOverall ANOVA Results:")
 print("Pre-Predator Velocities:", anova_pre)
